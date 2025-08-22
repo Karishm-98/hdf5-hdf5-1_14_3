@@ -4,13 +4,15 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-const char* FILE_NAME = "SDS.h5";
+const char *FILE_NAME = "SDS.h5";
 
 // These are the same offsets printed by your HDF5 reader
 std::vector<off_t> chunk_offsets = {4016, 4040, 4064, 4088, 4112, 4136};
-const size_t chunk_size = 24; // bytes
+const size_t       chunk_size    = 24; // bytes
 
-int main() {
+int
+main()
+{
     int fd = open(FILE_NAME, O_RDONLY);
     if (fd < 0) {
         perror("Failed to open file");
@@ -25,7 +27,7 @@ int main() {
             continue;
         }
 
-        char buffer[chunk_size];
+        char    buffer[chunk_size];
         ssize_t bytes_read = read(fd, buffer, chunk_size);
         if (bytes_read != chunk_size) {
             std::cerr << "Failed to read chunk " << i << " at offset " << offset << "\n";

@@ -165,7 +165,7 @@
 #define HAVE_IOCTL 1
 
 /* Define if the I/O Concentrator virtual file driver (VFD) should be compiled
-   */
+ */
 /* #undef HAVE_IOC_VFD */
 
 /* Define to 1 if you have the `crypto' library (-lcrypto). */
@@ -601,13 +601,13 @@
 /* Define WORDS_BIGENDIAN to 1 if your processor stores words with the most
    significant byte first (like Motorola and SPARC, unlike Intel). */
 #if defined AC_APPLE_UNIVERSAL_BUILD
-# if defined __BIG_ENDIAN__
-#  define WORDS_BIGENDIAN 1
-# endif
+#if defined __BIG_ENDIAN__
+#define WORDS_BIGENDIAN 1
+#endif
 #else
-# ifndef WORDS_BIGENDIAN
+#ifndef WORDS_BIGENDIAN
 /* #  undef WORDS_BIGENDIAN */
-# endif
+#endif
 #endif
 
 /* Number of bits in a file offset, on hosts where this is settable. */
